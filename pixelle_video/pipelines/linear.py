@@ -90,6 +90,10 @@ class LinearVideoPipeline(BasePipeline):
         """
         Execute the pipeline using the template method.
         """
+        # Inject SessionLLMService to maintain chat history over up to 50 turns
+        from pixelle_video.services.session_llm_service import SessionLLMService
+        self.llm = SessionLLMService(self.core.llm, max_turns=50)
+
         # 1. Initialize context
         ctx = PipelineContext(
             input_text=text,

@@ -10,6 +10,23 @@ version: '3.8'
 #   docker-compose up -d
 
 services:
+  # DS2API Service - Local DeepSeek API provider with multi-account rotation
+  ds2api:
+    image: ghcr.io/cjackhwang/ds2api:latest
+    container_name: pixelle-ds2api
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./ds2api_config.json:/app/config.json
+    environment:
+      - TZ=Asia/Shanghai
+      - DS2API_ADMIN_KEY=pixelle_admin_secret_key
+      - DS2API_HOST_PORT=5001
+      - DS2API_CONFIG_PATH=/app/config.json
+    restart: unless-stopped
+    networks:
+      - pixelle-network
+
   # Init Service - Ensures config.yaml exists before other services start
   # This fixes the Docker issue where mounting a non-existent file creates a directory
   init:
@@ -44,6 +61,8 @@ services:
     depends_on:
       init:
         condition: service_completed_successfully
+      ds2api:
+        condition: service_started
     ports:
       - "8000:8000"
     volumes:
@@ -85,6 +104,8 @@ services:
     depends_on:
       init:
         condition: service_completed_successfully
+      ds2api:
+        condition: service_started
     ports:
       - "8501:8501"
     volumes:

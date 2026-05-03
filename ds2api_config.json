@@ -1,0 +1,79 @@
+{
+  "_comment": "DS2API 配置文件",
+  "keys": [
+    "pixelle-ds2api-key"
+  ],
+  "api_keys": [
+    {
+      "key": "pixelle-ds2api-key",
+      "name": "Pixelle API Key",
+      "remark": "Pixelle-Video local connection key"
+    }
+  ],
+  "accounts": [
+    { "email": "your_email_1@example.com", "password": "your_password_1" },
+    { "email": "your_email_2@example.com", "password": "your_password_2" },
+    { "email": "your_email_3@example.com", "password": "your_password_3" },
+    { "email": "your_email_4@example.com", "password": "your_password_4" },
+    { "email": "your_email_5@example.com", "password": "your_password_5" },
+    { "email": "your_email_6@example.com", "password": "your_password_6" },
+    { "email": "your_email_7@example.com", "password": "your_password_7" },
+    { "email": "your_email_8@example.com", "password": "your_password_8" },
+    { "email": "your_email_9@example.com", "password": "your_password_9" },
+    { "email": "your_email_10@example.com", "password": "your_password_10" },
+    { "email": "your_email_11@example.com", "password": "your_password_11" },
+    { "email": "your_email_12@example.com", "password": "your_password_12" },
+    { "email": "your_email_13@example.com", "password": "your_password_13" },
+    { "email": "your_email_14@example.com", "password": "your_password_14" },
+    { "email": "your_email_15@example.com", "password": "your_password_15" },
+    { "email": "your_email_16@example.com", "password": "your_password_16" },
+    { "email": "your_email_17@example.com", "password": "your_password_17" },
+    { "email": "your_email_18@example.com", "password": "your_password_18" },
+    { "email": "your_email_19@example.com", "password": "your_password_19" },
+    { "email": "your_email_20@example.com", "password": "your_password_20" },
+    { "email": "your_email_21@example.com", "password": "your_password_21" },
+    { "email": "your_email_22@example.com", "password": "your_password_22" },
+    { "email": "your_email_23@example.com", "password": "your_password_23" },
+    { "email": "your_email_24@example.com", "password": "your_password_24" },
+    { "email": "your_email_25@example.com", "password": "your_password_25" },
+    { "email": "your_email_26@example.com", "password": "your_password_26" },
+    { "email": "your_email_27@example.com", "password": "your_password_27" },
+    { "email": "your_email_28@example.com", "password": "your_password_28" },
+    { "email": "your_email_29@example.com", "password": "your_password_29" },
+    { "email": "your_email_30@example.com", "password": "your_password_30" }
+  ],
+  "model_aliases": {
+    "default": "deepseek-v4-flash",
+    "gpt-4o": "deepseek-v4-flash",
+    "gpt-3.5-turbo": "deepseek-v4-flash",
+    "gpt-5.5": "deepseek-v4-flash",
+    "gpt-5.3-codex": "deepseek-v4-pro",
+    "o3": "deepseek-v4-pro"
+  },
+  "responses": {
+    "store_ttl_seconds": 900
+  },
+  "current_input_file": {
+    "enabled": true,
+    "min_chars": 0
+  },
+  "thinking_injection": {
+    "enabled": true,
+    "prompt": ""
+  },
+  "embeddings": {
+    "provider": "deterministic"
+  },
+  "admin": {
+    "jwt_expire_hours": 24
+  },
+  "runtime": {
+    "account_max_inflight": 3,
+    "account_max_queue": 100,
+    "global_max_inflight": 0,
+    "token_refresh_interval_hours": 6
+  },
+  "auto_delete": {
+    "mode": "none"
+  }
+}

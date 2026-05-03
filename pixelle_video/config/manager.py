@@ -107,22 +107,16 @@ class ConfigManager:
         return self.config.validate_required()
     
     def get_llm_config(self) -> dict:
-        """Get LLM configuration as dict"""
+        """Get LLM configuration as dict (Hardcoded to use ds2api)"""
         return {
-            "api_key": self.config.llm.api_key,
-            "base_url": self.config.llm.base_url,
-            "model": self.config.llm.model,
+            "api_key": "pixelle-ds2api-key",
+            "base_url": "http://ds2api:5001/v1",
+            "model": "deepseek-v4-flash", # Fallback default
         }
     
     def set_llm_config(self, api_key: str, base_url: str, model: str):
-        """Set LLM configuration"""
-        self.update({
-            "llm": {
-                "api_key": api_key,
-                "base_url": base_url,
-                "model": model,
-            }
-        })
+        """Set LLM configuration (Ignored as we force ds2api)"""
+        pass
     
     def get_comfyui_config(self) -> dict:
         """Get ComfyUI configuration as dict"""

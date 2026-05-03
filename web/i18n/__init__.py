@@ -22,7 +22,7 @@ from typing import Dict, Optional
 from loguru import logger
 
 _locales: Dict[str, dict] = {}
-_current_language: str = "en_US"  # Default fallback to English
+_current_language: str = "vi_VN"  # Default fallback to Vietnamese
 
 
 def load_locales() -> Dict[str, dict]:
@@ -218,13 +218,13 @@ def detect_system_language() -> str:
             # Handle formats: zh_CN, zh-CN, zh_CN.UTF-8, etc.
             system_locale = system_locale.replace('-', '_').split('.')[0]
             
-            # Direct match (e.g., "zh_CN")
+            # Direct match (e.g., "vi_VN")
             for locale_code in _locales.keys():
                 if locale_code.lower() == system_locale.lower():
                     logger.info(f"System language matched: {locale_code}")
                     return locale_code
             
-            # Partial match (e.g., "zh" matches "zh_CN")
+            # Partial match (e.g., "vi" matches "vi_VN")
             lang_prefix = system_locale.split('_')[0].lower()
             for locale_code in _locales.keys():
                 if locale_code.lower().startswith(lang_prefix):
@@ -235,8 +235,8 @@ def detect_system_language() -> str:
     except Exception as e:
         logger.warning(f"Failed to detect system language: {e}")
     
-    # Fallback to English
-    return "en_US"
+    # Fallback to Vietnamese
+    return "vi_VN"
 
 
 # Auto-load locales on import
