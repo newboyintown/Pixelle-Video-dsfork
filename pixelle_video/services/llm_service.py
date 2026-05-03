@@ -78,7 +78,8 @@ class LLMService:
             Config value
         """
         from pixelle_video.config import config_manager
-        return getattr(config_manager.config.llm, key, default)
+        llm_conf = config_manager.get_llm_config()
+        return llm_conf.get(key, default)
     
     def _create_client(
         self,
